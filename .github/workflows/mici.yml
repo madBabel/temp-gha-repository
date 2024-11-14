@@ -4,6 +4,9 @@ on: push
 jobs:
   build: 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-test
     steps:
       - name: Descargar codigo
         uses: actions/checkout@v4
@@ -14,5 +17,7 @@ jobs:
           node-version: '18.x'
       
       - name: install deps
-        run: npm ci
-        working-directory: app-test
+        run: npm ci        
+
+      - name: Run tests deps
+        run: npm test        
