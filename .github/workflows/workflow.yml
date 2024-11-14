@@ -1,0 +1,18 @@
+name: CI node
+on: push
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download code
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+    
+      - name: Install dep
+        run: npm ci
+        
