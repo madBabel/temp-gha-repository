@@ -2,8 +2,13 @@ name: CI node
 on: push
 
 jobs:
+
   build: 
+
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-prueba
     steps:
       - name: Download code
         uses: actions/checkout@v4
@@ -14,5 +19,8 @@ jobs:
           node-version: '18.x'
     
       - name: Install dep
-        run: npm ci
-        working-directory: app-prueba
+        run: npm ci        
+
+      - name: run Tests
+        run: npm test
+        
