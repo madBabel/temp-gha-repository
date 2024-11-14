@@ -15,4 +15,4 @@ jobs:
     
       - name: Install dep
         run: npm ci
-        
+        working-directory: app-prueba
