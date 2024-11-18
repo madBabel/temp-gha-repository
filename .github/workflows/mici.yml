@@ -1,5 +1,6 @@
-name: CI Node
-on: 
+name: Ejemplo Curso CI
+run-name: Mi WF Manual
+on:  
   push: 
     branches: 
       - features
