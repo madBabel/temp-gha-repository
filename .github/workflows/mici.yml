@@ -1,14 +1,24 @@
 name: CI Node
-on: push
-
+on: 
+  push: 
+    branches: 
+      - features
+      - other
+  pull_request: 
+    branches: main
+    types: [opened, synchronize]
+  workflow_dispatch:        
+      
 jobs:
   build: 
     runs-on: ubuntu-latest
+    name: ${{github }}
     defaults:
       run:
         working-directory: app-test
     steps:
-      - name: Descargar codigo
+      - name: Descargar codigo ${{runner.name }}
+
         uses: actions/checkout@v4
 
       - name: Configurar node
