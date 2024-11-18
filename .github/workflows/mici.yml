@@ -8,7 +8,26 @@ on:
   pull_request: 
     branches: main
     types: [opened, synchronize]
-  workflow_dispatch:        
+  workflow_dispatch:   
+    inputs:
+      debug: 
+        type: boolean
+        description: Quiero Depurar?
+        default: false
+      environment:
+        type: choice
+        description: Entorno
+        options:            
+           - int
+           - pre
+           - prod
+      addParams:
+        type: string
+        description: Parametros adicionales
+        default: "default Pram"
+
+
+          
       
 jobs:
   build: 
