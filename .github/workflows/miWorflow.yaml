@@ -1,0 +1,22 @@
+name: 02 - Eventos
+on:   
+  push: 
+
+jobs:
+  generar-password: 
+    runs-on: ubuntu-latest
+    outputs:
+      password: ${{steps.generarPass.outputs.pass}}
+    steps:
+      - name: ShowTrigger
+        id: generarPass
+        run: | 
+            # generar pass
+            echo "pass=12345678"  > "$GITHUB_OUTPUT"    
+  montrar-password: 
+    needs: generar-password
+    runs-on: ubuntu-latest
+    steps:
+      - name: ShowTrigger
+        run: | 
+            echo "Passs: ${{ needs.generar-password.outputs.password }}"    
