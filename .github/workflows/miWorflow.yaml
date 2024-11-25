@@ -4,6 +4,7 @@ on:
 
 jobs:
   generar-password: 
+    environment: pro
     runs-on: ubuntu-latest
     outputs:
       password: ${{steps.generarPass.outputs.pass}}
